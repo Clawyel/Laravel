@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin-top:100px;">
+        <div class="col-md-8 offset-md-2">
+		<strong>NOT: </strong>
+		<p>
+			Api fonksiyonlarına erişmek için postman kullanıldı<br>
+			CSRF-TOKEN bilgisini eklemek için app.layout.blade dosyasına <meta /> tag'i içerisine bu bilgiyi eklememiz gerekiyor.<br>
+			Postman kullanabilmek için yeni bir header oluşturum X-CSRF-TOKEN değerine sunucudaki herhangi bir sayfadan alacağınız Token bilgisini eklemeniz gerekiyor.<br>
+			Postman içeriisnde daha doğru sonuçlar alabilmek için headers değerlerine Accept:application/json değerini eklemelisiniz.<br>
+			Son Olarak Seeder Özelliğinden faydalanarak veritabanı oluşturup tablolara default değerleri ekletebilirsiniz.
+		</p>
+		<strong>Kayıt İşlemi: </strong>
+		<p>
+			Api fonksiyonlarında veri işlemleri yapabilmek için önce sisteme kayıt olmanız gerekiyor<br>
+		</p><br>
+			<table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /registerUser<br>
+						method -> post
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        name,email,password
+                    </td>
+                </tr>
+            </table>
+			<br>
+		<strong>Login İşlemi: </strong>
+		<p>
+			Kayıt olduktan sonra email ve şifre kullanılarak login olmalısınız<br>
+			Json Formatında aldığınız cevap içinden api_token bilgisini kopyalayın<br>
+			Postman içerisine yeni header ekleyin Authorization:   Bearer kopyaladığınız-token-değeri<br>
+			Bu işlemlerden sonra api içeriisndeki verilere erişebilirsiniz<br>
+		</p><br>
+			<table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /loginUser<br>
+						method -> post<br>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        email,password
+                    </td>
+					<td>
+                        donüş değeri : user json data
+                    </td>
+                </tr>
+            </table>
+			<br>
+<br>
+			<table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getUser<br>
+						method -> get
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        parametre yok
+                    </td>
+                    <td>
+                        donüş değeri : auth user json data
+                    </td>
+                </tr>
+            </table>
+		</div>
+		</div>
+    <div class="row" style="margin-top:10px;">
+
+	
+        <div class="col-md-8 offset-md-2">
+<h3>Kategoriler</h3><br>
+            <h5 class="pull-left">Tüm Kategorileri Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/fetchKategoriler<br>
+						method -> get
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Tüm kategoriler json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">id Değerine Göre Kategori	Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getKategori/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         kategori json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Kategori Ekleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/createKategori<br>
+						method -> post
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        baslik
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Kategori Güncelleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/updateKategori<br>
+						method -> put
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id,baslik
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Kategori Silme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/deleteKategori<br>
+						method -> delete
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	
+	
+	
+        <div class="col-md-8 offset-md-2">
+<h3>Yayın Evleri</h3><br>
+            <h5 class="pull-left">Tüm Yayin Evlerini Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/fetchYayinEvleri<br>
+						method -> get
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Tüm yayın evleri json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">id Değerine Göre Yayın Evi Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getYayinevi/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         Yayın Evi json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Yayin Evi Ekleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/createYayinevi<br>
+						method -> post
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        baslik
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Yayin Evi Güncelleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/updateYayinevi<br>
+						method -> put
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id,baslik
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Yayin Evi Silme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/deleteYayinevi<br>
+						method -> delete
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	    <div class="row" style="margin-top:10px;">
+
+	
+        <div class="col-md-8 offset-md-2">
+<h3>Yazarlar</h3><br>
+            <h5 class="pull-left">Tüm Yazarları Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/fetchYazarlar<br>
+						method -> get
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Tüm yazarlar json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">id Değerine Göre Yazar Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getYazar/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         yazar json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Yazar Ekleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/createYazar<br>
+						method -> post
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        baslik
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Yazar Güncelleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/updateYazar<br>
+						method -> put
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id,baslik
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Yazar Silme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/deleteYazar<br>
+						method -> delete
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	
+		    <div class="row" style="margin-top:10px;">
+
+	
+        <div class="col-md-8 offset-md-2">
+<h3>Kitaplar</h3><br>
+            <h5 class="pull-left">Tüm Kitapları Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/fetchKitaplar<br>
+						method -> get
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        Tüm kitaplar json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">id Değerine Göre Kitap Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getKitap/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         kitap json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">kategoriId Değerine Göre Kitap Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getKitapByKategori/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id, id = kategoriId
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         kitap json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">yazarId Değerine Göre Kitap Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getKitapByYazar/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id, id = yazarId
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         kitap json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">yayineviID Değerine Göre Kitap Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getKitapByYayinEvi/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id, id = yayineviID
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         kitap json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Belli Yayın Evinde Kitabı Olan Tüm Yazarlar</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getKitapByYayinEviYazar/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id, id = yayineviID
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         kitap json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Sayfa Sayısına Göre Kitap Görüntüleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th>
+                        url -> /authSys/getKitapBySayfaSayisi/{id}<br>
+						method -> get
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         Girdiğiniz Sayfa Sayısından Fazla Sayfa Sayısına Sahip Kitaplar Görüntülenecektir
+                    </td>
+                </tr>
+				<tr>
+                    <td>
+                         gerekli parametreler
+                    </td>
+                    <td>
+                         id, id = sayfaSayisi
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                         kitap json data
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Kitap Ekleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/createKitap<br>
+						method -> post
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        baslik,yayineviID,yazarID,kategoriID,sayfaSayisi
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Kitap Güncelleme</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/updateKitap<br>
+						method -> put
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        id parametresi zorunludur, diğer parametreler isteğe bağlıdır
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id,baslik,yayineviID,yazarID,kategoriID,sayfaSayisi
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+	<div class="row" style="margin-top:10px;">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pull-left">Yazar Kitap</h5>
+            <table class="table" border="1">
+                <tr>
+                    <th colspan="2">
+                        url -> /authSys/deleteKitap<br>
+						method -> delete
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        gerekli parametreler
+                    </td>
+                    <td>
+                        id
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
