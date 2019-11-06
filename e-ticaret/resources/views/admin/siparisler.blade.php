@@ -30,6 +30,8 @@
                         <th>Ürünler</th>
                         <th>Toplam Tutar</th>
                         <th>Ödeme Türü</th>
+                        <th>Onay Durumu</th>
+                        <th>Teslim Durumu</th>
                         <th>İşlemler</th>
                     </tr>
                     </thead>
@@ -43,6 +45,8 @@
                         <th>Ürünler</th>
                         <th>Toplam Tutar</th>
                         <th>Ödeme Türü</th>
+                        <th>Onay Durumu</th>
+                        <th>Teslim Durumu</th>
                         <th>İşlemler</th>
                     </tr>
                     </tfoot>
@@ -58,15 +62,27 @@
                                 <td>{{ $row['urunler']}}</td>
                                 <td>{{ $row['toplamTutar'] }}</td>
                                 <td>{{ $row['odemeTuru'] }}</td>
+                                <td>{{ $row['onayDurum'] }}</td>
+                                <td>{{ $row['teslimDurum'] }}</td>
                                 <td>
-                                    <a class="btn btn-danger btn-circle btn-sm" title="Sil"  href=""><i class="fas fa-trash"></i></a>
-                                    <a class="btn btn-success btn-circle btn-sm" title="Düzenle" href=""><i class="fas fa-check"></i></a>
+                                    <form action="{{route('admin.siparisReddet',$row['id'])}}" method="post">
+                                        {{csrf_field()}}
+                                        <button type="submit" class="btn btn-danger btn-circle btn-sm" title="Reddet" ><i class="fas fa-trash"></i></button>
+                                    </form>
+                                    <form action="{{route('admin.siparisOnayla',$row['id'])}}" method="post">
+                                        {{csrf_field()}}
+                                        <button type="submit" class="btn btn-success btn-circle btn-sm" title="Onayla" ><i class="fas fa-check"></i></button>
+                                    </form>
+                                    <form action="{{route('admin.siparisTeslimEdildi',$row['id'])}}" method="post">
+                                        {{csrf_field()}}
+                                        <button type="submit" class="btn btn-info btn-circle btn-sm" title=" Durumu Teslim Edildi" ><i class="fas fa-info-circle"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                     @else
                         <tr>
-                            <td>Ürün Bulunamadı,Yeni Ürün Ekleyin</td>
+                            <td>Sipariş Bulunamadı</td>
                         </tr>
 
                     @endif
