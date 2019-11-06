@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 use App\Entities\page;
 use App\Entities\sayfalar;
+use App\Entities\siparisler;
 use App\Repositories\Eloquents\Pages\pages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
@@ -71,9 +72,16 @@ class AdminController extends Controller
         }
         return view('admin/sayfaduzenle',compact('sayfaBilgileri'));
     }
+    public function siparisSayisi()
+    {
+        $siparisSayisi = siparisler::where('teslimDurum',0)->get();
+        $siparisSayisi = count($siparisSayisi);
+        return $siparisSayisi;
+    }
     public function solMenuSayfalarLoad()
     {
-        return view('admin/anasayfa');
+        $siparisSayisi = $this->siparisSayisi();
+        return view('admin/anasayfa',compact('siparisSayisi'));
     }
     public function sayfalarView()
     {

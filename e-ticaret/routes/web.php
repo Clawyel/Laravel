@@ -63,18 +63,26 @@ Route::group(["middleware"=>"yonetim",'namespace'=>'admin','prefix'=>'admin'],fu
     Route::get('/urun-ekle', 'UrunController@urunEkleView')->name('admin.urunEkleView');
     Route::post('/urun-ekle', 'UrunController@urunEkle')->name('admin.urunEkle');
     Route::get('/urun-sil/{id}', 'UrunController@urunSil')->name('admin.urunSil');
-
     Route::get('/urunduzenle/{id}', 'UrunController@urunDuzenleView')->name('admin.urunDuzenleView');
     Route::post('/urun-duzenle/{id}', 'UrunController@urunDuzenle')->name('admin.urunDuzenle');
     Route::post('/urun-kapak-foto-degistir/{id}', 'UrunController@urunKapakFotoDuzenle')->name('admin.urunKapakFotoDuzenle');
 
 
+    //Siparişler
+    Route::get('/siparisler', 'SiparisController@siparislerView')->name('admin.siparislerView');
+    Route::post('/siparis-onayla/{id}', 'SiparisController@siparisOnayla')->name('admin.siparisOnayla');
+    Route::post('/siparis-teslim-onayi/{id}', 'SiparisController@siparisTeslimEdildi')->name('admin.siparisTeslimEdildi');
+    Route::post('/siparis-reddet/{id}', 'SiparisController@siparisReddet')->name('admin.siparisReddet');
 
-
-
-
-    Route::get('/oturumukapat', 'AdminController@adminCikis')->name('admin.oturumukapat');
+    
+    Route::post('/oturumukapat', 'AdminController@adminCikis')->name('admin.oturumukapat');
     Route::get('/', 'AdminController@solMenuSayfalarLoad')->name('panelView');
+
+
+
+
+
+/* Sayfa Düzenlemeleri eklendi ama kullanılmadı ilerleyen zamanlarda içerik yönetimi için kullanılacaktır */
     Route::get('/sayfalar', 'AdminController@sayfalarView')->name('admin.sayfalarView');
     Route::get('/sayfaEkle', 'AdminController@sayfaEkleView')->name('admin.sayfaEkleView');
     Route::get('/sayfaSilAction/{id}', 'AdminController@sayfaSil');

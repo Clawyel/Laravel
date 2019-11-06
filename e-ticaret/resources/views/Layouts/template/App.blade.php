@@ -67,14 +67,14 @@
                         <ul class="nav navbar-nav">
                             @if(auth('kullanici')->check())
                             <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href="{{route('sepet.sepetView')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{{route('sepet.sepetView')}}"><i class="fa fa-shopping-cart"></i> Cart ({{Cart::count()}})</a></li>
                                 <form id="cikis-formu" method="post" action="{{route('kullaniciCikis')}}" style="display:none;">
                                     {{csrf_field()}}
                                 </form>
                                 <li><a href="#" onclick="event.preventDefault(); document.getElementById('cikis-formu').submit();"><i class="fa fa-lock"></i> Logout</a></li>
                            @else
                                 <li><a href="{{route('kullanici.loginView')}}"><i class="fa fa-lock"></i> Login</a></li>
-                                <li><a href="{{route('sepet.sepetView')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{{route('sepet.sepetView')}}"><i class="fa fa-shopping-cart"></i> Cart ({{Cart::count()}})</a></li>
                             @endif
 
 

@@ -32,7 +32,7 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#siparisler" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
-            <span>3 Yeni Sipariş</span>
+            <span>{{count(\App\Entities\siparisler::where('teslimDurum',0)->get())}} Yeni Sipariş</span>
         </a>
         <div id="siparisler" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
