@@ -8,3 +8,5 @@ admin ve kullanici olmak üzere iki farklı auth yöntemi kullanılmıştır
 admin -> auth('yonetim') admin paneline erişmek için kullanılır
 testeticaret.xxx/admin üzerinden admin paneline erişebilirsiniz
 admin kaydı oluşturduktan sonra veritabanında users tablosunda ilgili üyenin yoneticimi değerini 1 yapmanız gerekiyor yoksa giriş yapamazsınız
+
+admin paneli üzerinden ürünleri ve kategorileri yönetebilir ve sipariş yönetimini gerçekleştirebilirsiniz
