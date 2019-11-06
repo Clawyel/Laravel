@@ -21,7 +21,10 @@
                         </ul>
                     </div>
                     <div class="tab-content">
-                        {{$activein= "active in"}}
+                        @php
+                            $activein= "active in"
+                        @endphp
+
                         @foreach($urunler as $list)
 
                         <div class="tab-pane fade {{$activein}}" id="{{Str::slug($list->baslik)}}" >{{$activein=""}}
