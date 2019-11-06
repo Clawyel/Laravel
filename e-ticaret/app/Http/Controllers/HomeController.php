@@ -272,7 +272,7 @@ class HomeController extends Controller
                     $siparis->save();
                     sepet::where('kullaniciID',auth('kullanici')->id())->update(["siparisDurum" => 1]);
                     Cart::destroy();
-                    return view('template/index');
+                    return redirect()->route('anasayfa');
                 }
                 else
                 {
@@ -315,7 +315,7 @@ class HomeController extends Controller
                     $siparis->email = request('email');
                     $siparis->save();
                     Cart::destroy();
-                    return back();
+                    return redirect()->route('anasayfa');
                 }
             }
             return back();
