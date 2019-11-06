@@ -28,7 +28,7 @@
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product">
-                            <img src="{{URL::asset('storage/uploads/'.$urun->resim)}}" alt="" />
+                            <img src="{{URL::asset('storage/uploads/urunler/'.$urun->resim)}}" alt="" />
                         </div>
 
 

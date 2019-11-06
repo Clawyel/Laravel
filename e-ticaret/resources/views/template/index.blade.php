@@ -30,7 +30,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="{{URL::asset('storage/uploads/urun.jpg')}}" alt="" />
+                                                <img src="{{URL::asset('storage/uploads/urunler/urun.jpg')}}" alt="" />
                                                 <h2>{{$oku->fiyati}}</h2>
                                                 <p><a href="{{route('urundetay',$oku->slug)}}"> {{$oku->baslik}}</a></p>
                                                 <form action="{{route('sepet.ekle')}}" method="post">
