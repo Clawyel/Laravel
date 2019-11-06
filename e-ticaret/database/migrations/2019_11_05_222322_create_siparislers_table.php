@@ -23,6 +23,7 @@ class CreateSiparislersTable extends Migration
             $table->string('odemeTuru');
             $table->boolean('onayDurum')->default(0);
             $table->boolean('teslimDurum')->default(0);
+            $table->boolean('redDurum')->default(0);
             $table->string('email');
             $table->boolean('siparisTuru');
             $table->string('urunler')->nullable();

@@ -11,7 +11,7 @@ class siparisler extends Model
     public $incrementing = true;
     public $timestamps = true;
     protected $fillable = [
-        'adSoyad','adres','adresTarif','telefon','telefonYedek',"odemeTuru",'onayDurum','teslimDurum','email','sepetID','toplamTutar','siparisTuru','urunler'
+        'adSoyad','adres','adresTarif','telefon','telefonYedek',"odemeTuru",'onayDurum','redDurum','teslimDurum','email','sepetID','toplamTutar','siparisTuru','urunler'
     ];
     const CREATED_AT = "olusturma_tarihi";
     const UPDATED_AT = "guncelleme_tarihi";

@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="6b51137f-3f31-4db5-b4a4-4ac04adf6d51" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/AdminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/admin/App.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/admin/App.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entities/siparisler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Entities/siparisler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_05_222322_create_siparislers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_11_05_222322_create_siparislers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Layouts/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/admin/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Layouts/template/App.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Layouts/template/App.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -209,7 +207,7 @@
       <workItem from="1572687117750" duration="18317000" />
       <workItem from="1572900595340" duration="5369000" />
       <workItem from="1572968383209" duration="25962000" />
-      <workItem from="1573042012231" duration="2452000" />
+      <workItem from="1573042012231" duration="8599000" />
     </task>
     <servers />
   </component>
